@@ -1,0 +1,157 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"app-plus": { // 设置编译到 App 平台的特定样式，配置项参考下方 app-plus
+					"scrollIndicator": "none", // 滚动条显示策略，设置为 "none" 时不显示滚动条。
+					"bounce": "none", // 页面回弹效果，设置为 "none" 时关闭效果。
+					"titleNView": { // 导航栏 ，详见:导航栏
+						"searchInput": { // 原生导航栏上的搜索框配置，详见：searchInput
+							"align": "center", //非输入状态下文本的对齐方式。可取值： "left" - 居左对齐； "right" - 居右对齐； "center" - 居中对齐。
+							"backgroundColor": "#F7F7F7", //背景颜色
+							"borderRadius": "4px", // 输入框的圆角半径，取值格式为"XXpx"，其中XX为像素值（逻辑像素），不支持rpx。
+							"placeholder": "搜索糗事", // 提示文本。
+							"placeholderColor": "#CCC", //提示文本颜色
+							"disabled": true // 是否可输入
+						},
+						"buttons": [ // 自定义按钮，详见 buttons
+							// 左边
+							{
+								"color": "#FF9619", // 按钮上文字颜色
+								"colorPressed": "#BBB", //按下状态按钮文字颜色
+								"float": "left", //按钮在标题栏上的显示位置，可取值"left"、"right"
+								"fontSize": "22px", // 按钮上文字大小
+								"fontSrc": "/static/font/icon.ttf", //按钮上文字使用的字体文件路径。不支持网络地址，请统一使用本地地址。
+								"text": "\ue609" //按钮上显示的文字。使用字体图标时 unicode 字符表示必须 '\u' 开头，如 "\ue123"（注意不能写成"\e123"）。
+							},
+							// 右边
+							{
+								"color": "#000000",
+								"colorPressed": "#BBB",
+								"float": "right",
+								"fontSize": "22px",
+								"fontSrc": "/static/font/icon.ttf",
+								"text": "\ue653"
+							}
+						]
+					}
+				}
+			}
+		}, {
+			"path": "pages/news/news",
+			"style": {
+				"app-plus": {
+					"titleNView": false,
+					"bounce":"none" // 关闭反弹效果
+				}
+			}
+		}, {
+			"path": "pages/paper/paper",
+			"style": {}
+		}, {
+			"path": "pages/home/home",
+			"style": {}
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"app-plus": { // 设置编译到 App 平台的特定样式，配置项参考下方 app-plus
+					"scrollIndicator": "none", // 滚动条显示策略，设置为 "none" 时不显示滚动条。
+					"bounce": "none", // 页面回弹效果，设置为 "none" 时关闭效果。
+					"titleNView": { // 导航栏 ，详见:导航栏
+						"autoBackButton": false,
+						"searchInput": { // 原生导航栏上的搜索框配置，详见：searchInput
+							"align": "left", //非输入状态下文本的对齐方式。可取值： "left" - 居左对齐； "right" - 居右对齐； "center" - 居中对齐。
+							"backgroundColor": "#F7F7F7", //背景颜色
+							"borderRadius": "4px", // 输入框的圆角半径，取值格式为"XXpx"，其中XX为像素值（逻辑像素），不支持rpx。
+							"placeholder": "搜索糗事", // 提示文本。
+							"placeholderColor": "#CCC", //提示文本颜色
+							"disabled": false // 是否可输入
+						},
+						"buttons": [ // 自定义按钮，详见 buttons
+							// 左边(空)
+							// 右边
+							{
+								"color": "#000000",
+								"colorPressed": "#BBB",
+								"float": "right",
+								"fontSize": "16px",
+								"text": "取消"
+							}
+						]
+					}
+				}
+			}
+		}, {
+			"path": "pages/add-input/add-input",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}
+	    ,{
+            "path" : "pages/topic-nav/topic-nav",
+            "style" : {
+				"navigationBarTitleText":"话题分类" ,//导航栏标题文字内容
+				"app-plus":{ // 配置编译到 App 平台时的特定样式，部分常用配置 H5 平台也支持。以下仅列出常用，更多配置项参考 WebviewStyles。
+					"bounce":"none" // 页面回弹效果，设置为 "none" 时关闭效果。
+				}
+			}
+        }
+        ,{
+            "path" : "pages/topic-detail/topic-detail",
+            "style" : { // 用于设置每个页面的状态栏、导航条、标题、窗口背景色等。页面中配置项会覆盖 globalStyle 中相同的配置项
+				"app-plus":{ // 配置编译到 App 平台时的特定样式，部分常用配置 H5 平台也支持。以下仅列出常用，更多配置项参考 WebviewStyles。
+					"scrollIndicator":"none", // 滚动条显示策略，设置为 "none" 时不显示滚动条。
+					"titleNView":{ // 导航栏
+						"type":"transparent",//导航栏样式。"default"-默认样式；"transparent"-滚动透明渐变；"float"-悬浮导航栏。
+						"buttons":[
+							{
+								"type":"menu" // 菜单按钮(...)
+							}
+						]
+					}
+				}
+			}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "仿糗事百科",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	// 底部导航栏
+	"tabBar": {
+		"color": "#ADADAD",
+		"selectedColor": "#FEE42A",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "black",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "糗事",
+				"iconPath": "static/tabbar/index.png",
+				"selectedIconPath": "static/tabbar/indexed.png"
+			},
+			{
+				"pagePath": "pages/news/news",
+				"text": "动态",
+				"iconPath": "static/tabbar/news.png",
+				"selectedIconPath": "static/tabbar/newsed.png"
+			},
+			{
+				"pagePath": "pages/paper/paper",
+				"text": "小纸条",
+				"iconPath": "static/tabbar/paper.png",
+				"selectedIconPath": "static/tabbar/papered.png"
+			},
+			{
+				"pagePath": "pages/home/home",
+				"text": "我的",
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/homeed.png"
+			}
+		]
+	}
+}
