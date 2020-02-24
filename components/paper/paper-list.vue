@@ -1,7 +1,7 @@
 <template>
 
 	<!-- 小纸条列表 -->
-	<view class="paper-list u-f-ac">
+	<view class="paper-list u-f-ac animated fadeInLeft fast">
 		<!-- 左边：图标 -->
 		<image :src="item.userpic" mode="widthFix" lazy-load></image>
 		<!-- 右边： 两行 -->

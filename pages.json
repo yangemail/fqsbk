@@ -49,6 +49,7 @@
 		}, {
 			"path": "pages/paper/paper",
 			"style": {
+				"enablePullDownRefresh":true, // 是否开启下拉刷新，详见页面生命周期。
 				"navigationBarTitleText":"小纸条",
 				"app-plus":{
 					"titleNView":{
