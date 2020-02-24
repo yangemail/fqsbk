@@ -2,16 +2,7 @@
 	<view class="body">
 
 		<!-- 操作菜单 -->
-		<!-- 增加mask，全屏，让用户点击屏幕其它地方，都会隐藏菜单项 -->
-		<view class="paper-left-popup-mask" v-show="show" @tap="hidepopup"></view>
-		<view class="paper-left-popup" v-show="show">
-			<view class="u-f-ac" hover-class="paper-left-popup-h" @tap="addfriend">
-				<view class="icon iconfont icon-sousuo"></view> 加糗友
-			</view>
-			<view class="u-f-ac" hover-class="paper-left-popup-h" @tap="clear">
-				<view class="icon iconfont icon-qingchu"></view> 清除缓存
-			</view>
-		</view>
+		<paper-left-popup :show="show" @hide="hidepopup" @addfriend="addfriend" @clear="clear"></paper-left-popup>
 
 		<!-- 小纸条列表 -->
 		<block v-for="(item, index) in list" :key="index">
@@ -28,11 +19,14 @@
 	import paperList from '../../components/paper/paper-list.vue';
 	// 下拉加载更多
 	import loadMore from "../../components/common/load-more.vue";
+	// 弹出菜单
+	import paperLeftPopup from "../../components/paper/paper-left-popup.vue";
 
 	export default {
 		components: {
 			paperList,
 			loadMore,
+			paperLeftPopup,
 		},
 		data() {
 			return {
@@ -111,6 +105,9 @@
 			switch (e.index) {
 				case 0:
 					console.log("点击了左边按钮");
+					uni.navigateTo({
+						url: '../user-list/user-list',
+					});
 					this.hidepopup();
 					break;
 				case 1:
@@ -209,39 +206,5 @@
 <style>
 	.body {
 		padding: 0 20rpx;
-	}
-
-	.paper-left-popup-mask {
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		/* background: #333; */
-		z-index: 1999;
-	}
-
-	.paper-left-popup {
-		position: fixed;
-		right: 0;
-		top: 10rpx;
-		background: #FFF;
-		z-index: 2000;
-		width: 55%;
-		box-shadow: 1rpx 1rpx 20rpx 2rpx #CCC;
-	}
-
-	.paper-left-popup>view {
-		padding: 20rpx;
-		font-size: 35rpx;
-	}
-
-	.paper-left-popup>view>view {
-		margin-right: 10rpx;
-		font-weight: bold;
-	}
-
-	.paper-left-popup-h {
-		background: #EEE;
 	}
 </style>

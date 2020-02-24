@@ -43,16 +43,16 @@
 			"style": {
 				"app-plus": {
 					"titleNView": false,
-					"bounce":"none" // 关闭反弹效果
+					"bounce": "none" // 关闭反弹效果
 				}
 			}
 		}, {
 			"path": "pages/paper/paper",
 			"style": {
-				"enablePullDownRefresh":true, // 是否开启下拉刷新，详见页面生命周期。
-				"navigationBarTitleText":"小纸条",
-				"app-plus":{
-					"titleNView":{
+				"enablePullDownRefresh": true, // 是否开启下拉刷新，详见页面生命周期。
+				"navigationBarTitleText": "小纸条",
+				"app-plus": {
+					"titleNView": {
 						"buttons": [ // 自定义按钮，详见 buttons
 							// 左边
 							{
@@ -116,34 +116,61 @@
 					"titleNView": false
 				}
 			}
-		}
-	    ,{
-            "path" : "pages/topic-nav/topic-nav",
-            "style" : {
-				"navigationBarTitleText":"话题分类" ,//导航栏标题文字内容
-				"app-plus":{ // 配置编译到 App 平台时的特定样式，部分常用配置 H5 平台也支持。以下仅列出常用，更多配置项参考 WebviewStyles。
-					"bounce":"none" // 页面回弹效果，设置为 "none" 时关闭效果。
+		}, {
+			"path": "pages/topic-nav/topic-nav",
+			"style": {
+				"navigationBarTitleText": "话题分类", //导航栏标题文字内容
+				"app-plus": { // 配置编译到 App 平台时的特定样式，部分常用配置 H5 平台也支持。以下仅列出常用，更多配置项参考 WebviewStyles。
+					"bounce": "none" // 页面回弹效果，设置为 "none" 时关闭效果。
 				}
 			}
-        }
-        ,{
-            "path" : "pages/topic-detail/topic-detail",
-            "style" : { // 用于设置每个页面的状态栏、导航条、标题、窗口背景色等。页面中配置项会覆盖 globalStyle 中相同的配置项
-				"enablePullDownRefresh":true, // 是否开启下拉刷新，详见页面生命周期。
-				"app-plus":{ // 配置编译到 App 平台时的特定样式，部分常用配置 H5 平台也支持。以下仅列出常用，更多配置项参考 WebviewStyles。
-					"scrollIndicator":"none", // 滚动条显示策略，设置为 "none" 时不显示滚动条。
-					"titleNView":{ // 导航栏
-						"type":"transparent",//导航栏样式。"default"-默认样式；"transparent"-滚动透明渐变；"float"-悬浮导航栏。
-						"buttons":[
+		}, {
+			"path": "pages/topic-detail/topic-detail",
+			"style": { // 用于设置每个页面的状态栏、导航条、标题、窗口背景色等。页面中配置项会覆盖 globalStyle 中相同的配置项
+				"enablePullDownRefresh": true, // 是否开启下拉刷新，详见页面生命周期。
+				"app-plus": { // 配置编译到 App 平台时的特定样式，部分常用配置 H5 平台也支持。以下仅列出常用，更多配置项参考 WebviewStyles。
+					"scrollIndicator": "none", // 滚动条显示策略，设置为 "none" 时不显示滚动条。
+					"titleNView": { // 导航栏
+						"type": "transparent", //导航栏样式。"default"-默认样式；"transparent"-滚动透明渐变；"float"-悬浮导航栏。
+						"buttons": [{
+							"type": "menu" // 菜单按钮(...)
+						}]
+					}
+				}
+			}
+		}, {
+			"path": "pages/user-list/user-list",
+			"style": {
+				"app-plus": { // 设置编译到 App 平台的特定样式，配置项参考下方 app-plus
+					"animationType":"slide-in-left", // 窗口显示的动画效果，详见：窗口动画。
+					"scrollIndicator": "none", // 滚动条显示策略，设置为 "none" 时不显示滚动条。
+					"bounce": "none", // 页面回弹效果，设置为 "none" 时关闭效果。
+					"titleNView": { // 导航栏 ，详见:导航栏
+						"autoBackButton": false,
+						"searchInput": { // 原生导航栏上的搜索框配置，详见：searchInput
+							"align": "left", //非输入状态下文本的对齐方式。可取值： "left" - 居左对齐； "right" - 居右对齐； "center" - 居中对齐。
+							"backgroundColor": "#F7F7F7", //背景颜色
+							"borderRadius": "4px", // 输入框的圆角半径，取值格式为"XXpx"，其中XX为像素值（逻辑像素），不支持rpx。
+							"placeholder": "搜索糗事", // 提示文本。
+							"placeholderColor": "#CCC", //提示文本颜色
+							"disabled": false // 是否可输入
+						},
+						"buttons": [ // 自定义按钮，详见 buttons
+							// 左边(空)
+							// 右边
 							{
-								"type":"menu" // 菜单按钮(...)
+								"color": "#000000",
+								"colorPressed": "#BBB",
+								"float": "right",
+								"fontSize": "16px",
+								"text": "取消"
 							}
 						]
 					}
 				}
 			}
-        }
-    ],
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "仿糗事百科",
