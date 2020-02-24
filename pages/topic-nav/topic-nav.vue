@@ -1,5 +1,7 @@
 <template>
 	<view>
+		<!-- 热门分类 - 更多，页面 -->
+		
 		<!-- 滚动tab导航开发 -->
 		<swiper-tab-head :tabBars="tabBars" :tabIndex="tabIndex" @tabtap="tabtap"></swiper-tab-head>
 

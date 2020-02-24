@@ -48,7 +48,33 @@
 			}
 		}, {
 			"path": "pages/paper/paper",
-			"style": {}
+			"style": {
+				"navigationBarTitleText":"小纸条",
+				"app-plus":{
+					"titleNView":{
+						"buttons": [ // 自定义按钮，详见 buttons
+							// 左边
+							{
+								"color": "#000", // 按钮上文字颜色
+								"colorPressed": "#BBB", //按下状态按钮文字颜色
+								"float": "left", //按钮在标题栏上的显示位置，可取值"left"、"right"
+								"fontSize": "22px", // 按钮上文字大小
+								"fontSrc": "/static/font/icon.ttf", //按钮上文字使用的字体文件路径。不支持网络地址，请统一使用本地地址。
+								"text": "\ue845" //按钮上显示的文字。使用字体图标时 unicode 字符表示必须 '\u' 开头，如 "\ue123"（注意不能写成"\e123"）。
+							},
+							// 右边
+							{
+								"color": "#000",
+								"colorPressed": "#BBB",
+								"float": "right",
+								"fontSize": "22px",
+								"fontSrc": "/static/font/icon.ttf",
+								"text": "\ue684"
+							}
+						]
+					}
+				}
+			}
 		}, {
 			"path": "pages/home/home",
 			"style": {}
@@ -102,6 +128,7 @@
         ,{
             "path" : "pages/topic-detail/topic-detail",
             "style" : { // 用于设置每个页面的状态栏、导航条、标题、窗口背景色等。页面中配置项会覆盖 globalStyle 中相同的配置项
+				"enablePullDownRefresh":true, // 是否开启下拉刷新，详见页面生命周期。
 				"app-plus":{ // 配置编译到 App 平台时的特定样式，部分常用配置 H5 平台也支持。以下仅列出常用，更多配置项参考 WebviewStyles。
 					"scrollIndicator":"none", // 滚动条显示策略，设置为 "none" 时不显示滚动条。
 					"titleNView":{ // 导航栏

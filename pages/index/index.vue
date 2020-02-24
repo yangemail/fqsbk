@@ -3,11 +3,12 @@
 
 		<!-- 滚动tab导航开发 -->
 		<swiper-tab-head :tabBars="tabBars" :tabIndex="tabIndex" @tabtap="tabtap"></swiper-tab-head>
-
+		
 		<!-- 长列表横向滚动容器<swiper/> -->
 		<view class="uni-tab-bar">
 			<swiper class="swiper-box" :style="{height:swiperheight+'px'}" :current="tabIndex" @change="tabChange">
 				<swiper-item v-for="(items, index) in newsList" :key="index">
+				<!-- <swiper-item > -->
 					<scroll-view scroll-y="true" class="list" @scrolltolower="loadmore(index)">
 						<template v-if="items.list.length > 0">
 							<!-- 图文列表组件 --> 
@@ -23,6 +24,7 @@
 							<!-- 无内容，默认图片 -->
 							<no-thing></no-thing>
 						</template>
+						
 					</scroll-view>
 				</swiper-item>
 			</swiper>
@@ -286,6 +288,7 @@
 		},
 		// 自动计算页面高度
 		onLoad() {
+		// onReady() {
 			uni.getSystemInfo({
 				success: (res) => {
 					// 必须使用px，因为windowHeight返回的是px，不是rpx/upx

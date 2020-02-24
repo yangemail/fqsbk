@@ -8,7 +8,7 @@
 		<!-- 长列表横向滚动容器<swiper/> -->
 		<view class="uni-tab-bar">
 			<swiper class="swiper-box" :style="{height:swiperheight+'px'}" :current="tabIndex" @change="tabChange">
-				<!-- 关注 -->
+				<!-- 关注Tab页 -->
 				<swiper-item>
 					<scroll-view scroll-y="true" class="list" @scrolltolower="loadmore()">
 						<block v-for="(item, index) in guanzhu.list" :key="index">
@@ -20,7 +20,8 @@
 						<load-more :loadtext="guanzhu.loadtext"></load-more>
 					</scroll-view>
 				</swiper-item>
-				<!-- 话题 -->
+				
+				<!-- 话题Tab页 -->
 				<swiper-item>
 					<scroll-view scroll-y="true" class="list">
 						<!-- 话题：搜索框 -->
