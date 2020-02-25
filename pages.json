@@ -170,7 +170,28 @@
 				}
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/user-chat/user-chat",
+            "style" : {
+				"navigationBarTitleText":"聊天页",
+				"app-plus": {
+					"titleNView": {
+						"buttons":[
+							// 右边按钮
+							{
+								"color": "#000",
+								"colorPressed": "#BBB",
+								"float": "right",
+								"fontSize": "22px",
+								"fontSrc": "/static/font/icon.ttf",
+								"text": "\ue628"
+							}
+						]
+					}
+				}
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "仿糗事百科",

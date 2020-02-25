@@ -1,7 +1,7 @@
 <template>
 
 	<!-- 小纸条列表 -->
-	<view class="paper-list u-f-ac animated fadeInLeft fast">
+	<view class="paper-list u-f-ac animated fadeInLeft fast"  @tap="opendetail">
 		<!-- 左边：图标 -->
 		<image :src="item.userpic" mode="widthFix" lazy-load></image>
 		<!-- 右边： 两行 -->
@@ -40,7 +40,14 @@
 			return {
 
 			};
-		}
+		},
+		methods: {
+			opendetail() {
+				uni.navigateTo({
+					url: '../../pages/user-chat/user-chat',
+				});
+			}
+		},
 	}
 </script>
 
