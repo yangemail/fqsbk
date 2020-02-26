@@ -82,6 +82,7 @@
 		}, {
 			"path": "pages/search/search",
 			"style": {
+				"enablePullDownRefresh": true, // 是否开启下拉刷新，详见页面生命周期。
 				"app-plus": { // 设置编译到 App 平台的特定样式，配置项参考下方 app-plus
 					"scrollIndicator": "none", // 滚动条显示策略，设置为 "none" 时不显示滚动条。
 					"bounce": "none", // 页面回弹效果，设置为 "none" 时关闭效果。
