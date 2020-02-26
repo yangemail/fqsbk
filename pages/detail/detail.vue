@@ -11,6 +11,11 @@
 				<comment-list :item="item" :index="index"></comment-list>
 			</block>
 		</view>
+
+		<!-- 占位符，为底部输入框占位 -->
+		<view style="height: 120rpx;"></view>
+		<!-- 评论底部输入框 -->
+		<user-chat-bottom @submit="submit"></user-chat-bottom>
 	</view>
 </template>
 
@@ -21,11 +26,14 @@
 	import time from "../../common/time.js";
 	// 评论列表
 	import commentList from "../../components/detail/comment-list.vue";
+	// 底部输入框
+	import userChatBottom from "../../components/user-chat/user-chat-bottom.vue";
 
 	export default {
 		components: {
 			detailInfo,
-			commentList
+			commentList,
+			userChatBottom,
 		},
 		data() {
 			return {
@@ -120,6 +128,19 @@
 					arr[i].time = time.gettime.gettime(arr[i].time);
 				}
 				this.comment.list = arr;
+			},
+			// 发送评论底部输入框
+			submit(data) {
+				console.log("当前输入的是：" + data);
+				let obj = {
+					id: 4,
+					fid: 0, // 父级评论ID，如果是1级评论，默认为0
+					userpic: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/uni@2x.png",
+					username: "小猫咪",
+					time: time.gettime.gettime(new Date().getTime()),
+					data: data
+				};
+				this.comment.list.push(obj);
 			}
 		}
 	}
