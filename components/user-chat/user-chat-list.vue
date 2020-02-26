@@ -5,15 +5,16 @@
 		<view v-if="item.gstime" class="user-chat-time u-f-ajc">{{item.gstime}}</view>
 		<!-- 使用u-f，因为不需要垂直方向居中 -->
 		<view class="user-chat-list u-f" :class="{'user-chat-me':(item.isme)}">
-			<!-- 好友的头像 -->
+			<!-- 好友的头像（左边） -->
 			<image v-if="!item.isme" :src="item.userpic" mode="widthFix" lazy-load></image>
+			<!-- 中间信息（文字、图片等） -->
 			<view class="user-chat-list-body">
 				<!-- 文字 -->
 				<text v-if="item.type == 'text'">{{item.data}}</text>
 				<!-- 图片 -->
 				<image v-if="item.type == 'img'" :src="item.data" mode="widthFix" lazy-load></image>
 			</view>
-			<!-- 自己的头像 -->
+			<!-- 自己的头像（右边） -->
 			<image v-if="item.isme" :src="item.userpic" mode="widthFix" lazy-load></image>
 		</view>
 	</view>
@@ -77,16 +78,19 @@
 	}
 
 	/* .user-chat-me是我自己发送的信息样式 */
+	/* 设置justify-content: flex-end; 将所有信息放到最右边 */
 	.user-chat-me {
 		justify-content: flex-end;
 	}
 
 	/* 表示：.user-chat-me下面的.user-chat-list-body */
+	/* 将消息体放到右边 */
 	.user-chat-me .user-chat-list-body {
 		margin-right: 20rpx;
 		margin-left: 100rpx;
 	}
 
+	/* 设置消息体右边的小三角 */
 	.user-chat-me .user-chat-list-body::after {
 		/* 默认值。通过浏览器计算左边缘的位置。 */
 		left: auto;
@@ -94,6 +98,7 @@
 		border-color: transparent transparent transparent #F4F4F4;
 	}
 
+	/* 设置消息体中的图片最大宽度和高度 */
 	.user-chat-list-body>image {
 		max-width: 150rpx;
 		max-height: 200rpx;

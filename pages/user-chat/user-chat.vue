@@ -51,6 +51,7 @@
 			initdata() {
 				try {
 					const res = uni.getSystemInfoSync();
+					// res.windowHeight：返回屏幕高度px。此时减去下面的输入条，获得<scroll-view/>需要的高度
 					this.style.contentHeight = res.windowHeight - uni.upx2px(120);
 				} catch (e) {
 					//TODO handle the exception
@@ -67,6 +68,7 @@
 						this.style.itemHeight += val.height;
 					});
 
+					// TODO: 还是有问题，长列表中不能自动显示最后一个消息。
 					if (this.style.itemHeight > this.style.contentHeight) {
 						this.scrollTop = this.style.itemHeight;
 						// console.log("this.scrollTop: " + this.scrollTop)
@@ -102,13 +104,9 @@
 			// 发送留言逻辑
 			submit(data) {
 				console.log("当前输入的是：" + data);
+				
 				// 构建数据
 				let now = new Date().getTime();
-				let lasttime = 0;
-				if (this.list.length > 0) {
-					lasttime = this.list[this.list.length - 1].time;
-				}
-
 				let obj = {
 					isme: true, // 发送输入框，肯定是自己发送的，所以为true
 					userpic: "../../static/demo/userpic/10.jpg",
