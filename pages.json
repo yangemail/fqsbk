@@ -192,6 +192,21 @@
 				}
 			}
         }
+        ,{
+            "path" : "pages/detail/detail",
+            "style" : {
+				"navigationBarTitleText":"内容页",
+				"app-plus":{
+					"scrollIndicator":"none",
+					"bounce":"none",
+					"titleNView": {
+						"buttons":[
+							{"type":"menu"} // 使用官方预设好的menu按钮样式
+						]
+					}
+				}
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

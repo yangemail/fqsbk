@@ -1,0 +1,95 @@
+/* 列表组件 */
+.common-list {
+	padding: 20rpx;
+}
+
+.common-list-left {
+	/* 防止flex布局被压缩 */
+	flex-shrink: 0;
+
+}
+
+.common-list-left image {
+	width: 90rpx;
+	height: 90rpx;
+	border-radius: 100%;
+}
+
+.common-list-right {
+	/* 需要让元素自动填充满右面的空间 - flex:1 */
+	flex: 1;
+	margin-left: 15rpx;
+	border-bottom: 1rpx solid #EEE;
+	padding-bottom: 10rpx;
+}
+
+.common-list-right>view:nth-child(1)>view:first-child {
+	color: #999;
+	font-size: 32rpx;
+}
+
+.common-list-right>view:nth-child(1)>view:last-child {
+	background: #EEE;
+	padding: 0 10rpx;
+	font-size: 26rpx;
+}
+
+.common-list-right>view:nth-child(2) {
+	font-size: 32rpx;
+	padding: 12rpx 0;
+}
+
+.common-list-right>view:nth-child(3) {
+	position: relative;
+	margin-bottom: 10rpx;
+}
+
+.common-list-right>view:nth-child(3)>image {
+	width: 100%;
+	border-radius: 10rpx;
+}
+
+.common-list-play,
+.common-list-playinfo {
+	position: absolute;
+	color: #FFF;
+}
+
+.common-list-play {
+	font-size: 130rpx;
+}
+
+.common-list-playinfo {
+	right: 10rpx;
+	bottom: 10rpx;
+	background: rgba(51, 51, 51, 0.73);
+	border-radius: 20rpx;
+	padding: 0 20rpx;
+	font-size: 26rpx;
+}
+
+.common-list-share {
+	background: #EEE;
+	/* border: 1rpx solid; */
+	width: 100%;
+	padding: 10rpx;
+	border-radius: 10rpx;
+}
+
+.common-list-share>image {
+	width: 200rpx;
+	height: 150rpx;
+	margin-right: 10rpx;
+}
+
+.common-list-right>view:nth-child(4) {}
+
+.common-list-right>view:nth-child(4)>view {
+	color: #AAA;
+}
+
+.common-list-right>view:nth-child(4)>view:nth-child(2)>view {
+	margin-left: 10rpx;
+	padding-left: 5rpx;
+	font-size: 28rpx;
+}

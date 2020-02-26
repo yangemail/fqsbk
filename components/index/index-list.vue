@@ -98,7 +98,10 @@
 			},
 			// 进入详情页
 			opendetail() {
-				console.log("进入详情页");
+				console.log("点击进入内容详情页");
+				uni.navigateTo({
+					url: '../../pages/detail/detail?detailData='+JSON.stringify(this.item),
+				});
 			},
 		},
 	}
