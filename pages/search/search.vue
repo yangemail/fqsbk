@@ -5,12 +5,9 @@
 			<block v-for="(item, index) in list" :key="index">
 				<index-list :item="item" :index="index"></index-list>
 			</block>
-
 			<!-- 上拉加载 -->
 			<load-more :loadtext="loadtext"></load-more>
-			
 		</template>
-
 		<template v-else-if="issearch && list.length == 0">
 			<!-- 无内容，默认图片 -->
 			<no-thing></no-thing>
@@ -37,6 +34,7 @@
 				issearch: false,
 				loadtext: "上拉加载更多",
 				list: [],
+				searchtext: "" // 通过searchtext传值给getdata(){}
 			}
 		},
 		// 监听原生标题导航按钮点击事件
@@ -51,42 +49,26 @@
 		// 监听搜索框文本变化
 		onNavigationBarSearchInputChanged(e) {
 			console.log('监听搜索框文本变化: ' + e.text);
-			// if (e.text) {
-			// 	this.getdata(e.text);
-			// }
+			this.searchtext = e.text;
 		},
 		// 监听点击搜索按钮事件(小键盘上面的“搜索”按钮)
 		onNavigationBarSearchInputConfirmed(e) {
 			console.log('监听点击搜索按钮事件: ' + e.text);
 			if (e.text) {
-				this.getdata(e.text);
+				this.getdata();
 			}
 		},
-		// 监听下拉刷新
+		// 监听下拉刷新事件
 		onPullDownRefresh() {
-			// this.getdata();
 			console.log("监听下拉刷新事件");
+			this.getdata();
+			uni.stopPullDownRefresh();
 		},
 		// 上拉加载，上拉触底事件。监听页面触底事件
 		onReachBottom() {
 			this.loadmore();
 		},
 		methods: {
-			// 下拉刷新
-			// getdata() {
-			// 	setTimeout(() => {
-			// 		// 获取数据（模拟数据）
-			// 		let arr = [
-
-			// 		];
-
-			// 		// 赋值
-			// 		// this.tablist[this.tabIndex].list = arr;
-
-			// 		// 关闭下拉刷新，模拟2秒之后下拉刷新结束
-			// 		uni.stopPullDownRefresh();
-			// 	}, 2000);
-			// },
 			// 上拉加载
 			loadmore() {
 				// 如果是：上拉加载更多，则不执行任何操作.
@@ -119,13 +101,14 @@
 
 				// this.tablist[this.tabIndex].loadtext = "没有更多数据了";
 			},
-			// 搜索事件
-			getdata(val) {
+			// 搜索事件 + 下拉刷新事件
+			getdata() {
+
 				// 显示加载提示框
 				uni.showLoading({
 					title: '加载中'
 				});
-				// 请求服务器：post请求，keyword=val
+				// 请求服务器：post请求，keyword=searchtext
 				setTimeout(() => {
 					let arr = [{
 						userpic: "../../static/demo/userpic/12.jpg",
@@ -178,7 +161,7 @@
 
 					// uni.showLoading(OBJECT) 显示 loading 提示框, 需主动调用 uni.hideLoading 才能关闭提示框。
 					uni.hideLoading();
-					
+
 					this.issearch = true;
 				}, 1000);
 			}
