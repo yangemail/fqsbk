@@ -78,7 +78,18 @@
 			}
 		}, {
 			"path": "pages/home/home",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "我的",
+				"app-plus": {
+					"scrollIndicator":"none",
+					"bounce":"none",
+					"titleNView": {
+						"buttons": [{
+							"type": "menu"
+						}]
+					}
+				}
+			}
 		}, {
 			"path": "pages/search/search",
 			"style": {
@@ -143,7 +154,7 @@
 			"path": "pages/user-list/user-list",
 			"style": {
 				"app-plus": { // 设置编译到 App 平台的特定样式，配置项参考下方 app-plus
-					"animationType":"slide-in-left", // 窗口显示的动画效果，详见：窗口动画。
+					"animationType": "slide-in-left", // 窗口显示的动画效果，详见：窗口动画。
 					"scrollIndicator": "none", // 滚动条显示策略，设置为 "none" 时不显示滚动条。
 					"bounce": "none", // 页面回弹效果，设置为 "none" 时关闭效果。
 					"titleNView": { // 导航栏 ，详见:导航栏
@@ -170,14 +181,13 @@
 					}
 				}
 			}
-		}
-	    ,{
-            "path" : "pages/user-chat/user-chat",
-            "style" : {
-				"navigationBarTitleText":"聊天页",
+		}, {
+			"path": "pages/user-chat/user-chat",
+			"style": {
+				"navigationBarTitleText": "聊天页",
 				"app-plus": {
 					"titleNView": {
-						"buttons":[
+						"buttons": [
 							// 右边按钮
 							{
 								"color": "#000",
@@ -191,23 +201,23 @@
 					}
 				}
 			}
-        }
-        ,{
-            "path" : "pages/detail/detail",
-            "style" : {
-				"navigationBarTitleText":"内容页",
-				"app-plus":{
-					"scrollIndicator":"none",
-					"bounce":"none",
+		}, {
+			"path": "pages/detail/detail",
+			"style": {
+				"navigationBarTitleText": "内容页",
+				"app-plus": {
+					"scrollIndicator": "none",
+					"bounce": "none",
 					"titleNView": {
-						"buttons":[
-							{"type":"menu"} // 使用官方预设好的menu按钮样式
+						"buttons": [{
+								"type": "menu"
+							} // 使用官方预设好的menu按钮样式
 						]
 					}
 				}
 			}
-        }
-    ],
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "仿糗事百科",
