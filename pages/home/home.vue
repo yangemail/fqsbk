@@ -87,7 +87,7 @@
 				}, {
 					icon: "keyboard",
 					name: "审核糗事"
-				}, ]
+				}]
 			}
 		},
 		onNavigationBarButtonTap(e) {
@@ -95,6 +95,9 @@
 			switch (e.index) {
 				case 0:
 					console.log("跳转到设置页面");
+					uni.navigateTo({
+						url: '../user-set/user-set',
+					});
 					break;
 				default:
 					break;

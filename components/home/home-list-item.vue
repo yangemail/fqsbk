@@ -2,7 +2,7 @@
 	<!-- 功能列表 -->
 	<view class="home-list-item u-f-ac u-f-jsb" hover-class="home-list-hover">
 		<view class="u-f-ac">
-			<view class="icon iconfont" :class="('icon-'+item.icon)"></view>{{item.name}}
+			<view v-if="item.icon" class="icon iconfont" :class="('icon-'+item.icon)"></view>{{item.name}}
 		</view>
 		<view class="icon iconfont icon-jinru"></view>
 	</view>
