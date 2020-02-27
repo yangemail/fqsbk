@@ -14,8 +14,13 @@
 
 		<!-- 占位符，为底部输入框占位 -->
 		<view style="height: 120rpx;"></view>
+		
 		<!-- 评论底部输入框 -->
 		<user-chat-bottom @submit="submit"></user-chat-bottom>
+
+		<!-- 分享更多功能 -->
+		<more-share :show="shareshow" @toggle="toggle"></more-share>
+		
 	</view>
 </template>
 
@@ -28,12 +33,15 @@
 	import commentList from "../../components/detail/comment-list.vue";
 	// 底部输入框
 	import userChatBottom from "../../components/user-chat/user-chat-bottom.vue";
+	// 分享更多功能
+	import moreShare from "../../components/common/more-share.vue";
 
 	export default {
 		components: {
 			detailInfo,
 			commentList,
 			userChatBottom,
+			moreShare
 		},
 		data() {
 			return {
@@ -59,7 +67,8 @@
 				comment: {
 					count: 20, // 数据库中评论的总数，并不是本数组获取到的数量
 					list: []
-				}
+				},
+				shareshow: false, // 分享
 			}
 		},
 		onLoad(e) {
@@ -75,9 +84,14 @@
 		onNavigationBarButtonTap(e) {
 			if (e.index == 0) {
 				console.log("分享按钮点击了！");
+				this.toggle();
 			}
 		},
 		methods: {
+			// 分享展示
+			toggle() {
+				this.shareshow = !this.shareshow;
+			},
 			// 初始化数据
 			initdata(obj) {
 				// 修改窗口标题：uni.setNavigationBarTitle(OBJECT)：动态设置当前页面的标题。
@@ -147,6 +161,7 @@
 </script>
 
 <style>
+	/* 最新评论 */
 	.u-comment-title {
 		padding: 20rpx;
 		font-size: 30rpx;
@@ -156,4 +171,6 @@
 	.u-comment {
 		padding: 0 20rpx;
 	}
+
+	
 </style>
