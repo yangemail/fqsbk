@@ -14,38 +14,50 @@
 		components: {
 			homeListItem,
 		},
-
 		data() {
 			return {
 				// 功能列表
 				list: [{
 						icon: "",
-						name: "账号与安全"
+						name: "账号与安全",
+						clicktype: "navigateTo",
+						url: "../user-set-repassword/user-set-repassword"
 					}, {
 						icon: "",
-						name: "绑定邮箱"
+						name: "绑定邮箱",
+						clicktype: "",
+						url: ""
 					}, {
 						icon: "",
-						name: "资料编辑"
+						name: "资料编辑",
+						clicktype: "",
+						url: ""
 					},
 					{
 						icon: "",
-						name: "小纸条"
+						name: "小纸条",
+						clicktype: "",
+						url: ""
 					}, {
 						icon: "",
-						name: "清除缓存"
+						name: "清除缓存",
+						clicktype: "",
+						url: ""
 					}, {
 						icon: "",
-						name: "意见反馈"
+						name: "意见反馈",
+						clicktype: "",
+						url: ""
 					}, {
 						icon: "",
-						name: "关于仿糗百"
+						name: "关于仿糗百",
+						clicktype: "",
+						url: ""
 					}
 				]
 			}
 		},
 		methods: {
-
 		}
 	}
 </script>
@@ -54,7 +66,7 @@
 	.body {
 		padding: 0 20rpx;
 	}
-	
+
 	.user-set-btn {
 		width: 100%;
 		margin: 20rpx 0;

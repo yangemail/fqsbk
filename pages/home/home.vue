@@ -80,13 +80,19 @@
 				// 功能列表
 				list: [{
 					icon: "liulan",
-					name: "浏览历史"
+					name: "浏览历史",
+					clicktype:"",
+					url:""
 				}, {
 					icon: "huiyuanvip",
-					name: "糗百认证"
+					name: "糗百认证",
+					clicktype:"",
+					url:""
 				}, {
 					icon: "keyboard",
-					name: "审核糗事"
+					name: "审核糗事",
+					clicktype:"",
+					url:""
 				}]
 			}
 		},

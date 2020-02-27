@@ -81,8 +81,8 @@
 			"style": {
 				"navigationBarTitleText": "我的",
 				"app-plus": {
-					"scrollIndicator":"none",
-					"bounce":"none",
+					"scrollIndicator": "none",
+					"bounce": "none",
 					"titleNView": {
 						"buttons": [{
 							"type": "menu"
@@ -216,14 +216,21 @@
 					}
 				}
 			}
-		}
-	    ,{
-            "path" : "pages/user-set/user-set",
-            "style" : {
-				"navigationBarTitleText":"设置"
+		}, {
+			"path": "pages/user-set/user-set",
+			"style": {
+				"navigationBarTitleText": "设置"
 			}
-        }
-    ],
+		}, {
+			"path": "pages/user-set-repassword/user-set-repassword",
+			"style": {
+				"navigationBarTitleText": "修改密码",
+				"app-plus": {
+					"scrollIndicator": "none"
+				}
+			}
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "仿糗事百科",
