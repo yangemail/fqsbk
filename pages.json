@@ -229,6 +229,14 @@
 					"scrollIndicator": "none"
 				}
 			}
+		}, {
+			"path": "pages/user-set-email/user-set-email",
+			"style": {
+				"navigationBarTitleText": "修改邮箱",
+				"app-plus": {
+					"scrollIndicator": "none"
+				}
+			}
 		}
 	],
 	"globalStyle": {

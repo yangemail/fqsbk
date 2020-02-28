@@ -25,8 +25,8 @@
 					}, {
 						icon: "",
 						name: "绑定邮箱",
-						clicktype: "",
-						url: ""
+						clicktype: "navigateTo",
+						url: "../user-set-email/user-set-email"
 					}, {
 						icon: "",
 						name: "资料编辑",
