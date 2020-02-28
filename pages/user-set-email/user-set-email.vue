@@ -45,6 +45,15 @@
 					});
 					return false;
 				}
+				// 验证邮箱格式
+				var ePattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+				if(!ePattern.test(this.email)) {
+					uni.showToast({
+						title:"邮箱格式错误",
+						icon:"none"
+					});
+					return false;
+				}
 
 				if (!this.password || this.password== "") {
 					uni.showToast({

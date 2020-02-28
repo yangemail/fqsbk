@@ -30,8 +30,8 @@
 					}, {
 						icon: "",
 						name: "资料编辑",
-						clicktype: "",
-						url: ""
+						clicktype: "navigateTo",
+						url: "../user-set-userinfo/user-set-userinfo"
 					},
 					{
 						icon: "",
