@@ -3,12 +3,12 @@
 		<block v-for="(item, index) in list" :key="index">
 			<home-list-item :item="item" :index="index"></home-list-item>
 		</block>
-		<button type="primary" class="user-set-btn">退出登录</button>
+		<button type="primary" class="user-set-btn">完成</button>
 	</view>
 </template>
 
 <script>
-	import homeListItem from "../../components/home/home-list-item.vue"
+	import homeListItem from "../../components/home/home-list-item.vue";
 
 	export default {
 		components: {
@@ -57,21 +57,11 @@
 				]
 			}
 		},
-		methods: {
-		}
+		methods: {}
 	}
 </script>
 
 <style>
-	.body {
-		padding: 0 20rpx;
-	}
-
-	.user-set-btn {
-		width: 100%;
-		margin: 20rpx 0;
-		background-color: #FFE933;
-		border: 0 !important;
-		color: #333;
-	}
+	/* css 引入需要放到第一行 */
+	@import "../../common/form.css";
 </style>

@@ -25,10 +25,12 @@
 }
 
 .u-f1 {
-	flex:1;
+	flex: 1;
 }
 
 .u-f-column {
 	/* 垂直方向排列 */
 	flex-direction: column;
 }
+
+
