@@ -46,8 +46,8 @@
 					}, {
 						icon: "",
 						name: "意见反馈",
-						clicktype: "",
-						url: ""
+						clicktype: "navigateTo",
+						url: "../user-set-help/user-set-help"
 					}, {
 						icon: "",
 						name: "关于仿糗百",
