@@ -51,8 +51,8 @@
 					}, {
 						icon: "",
 						name: "关于仿糗百",
-						clicktype: "",
-						url: ""
+						clicktype: "navigateTo",
+						url: "../user-set-about/user-set-about"
 					}
 				]
 			}

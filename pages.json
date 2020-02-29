@@ -254,7 +254,16 @@
 				}
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/user-set-about/user-set-about",
+            "style" : {
+				"navigationBarTitleText":"关于放糗百",
+				"app-plus": {
+					"scrollIndicator":"none"
+				}
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "仿糗事百科",
