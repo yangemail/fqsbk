@@ -23,10 +23,12 @@
 		</view>
 		<view class="user-set-userinfo-list u-f-ac u-f-jsb">
 			<view>生日</view>
-			<view class="u-f-ac">
-				<view>2019-3-16</view>
-				<view class="icon iconfont icon-bianji1"></view>
-			</view>
+			<picker mode="date" :value="birthday" :start="startDate" :end="endDate" @change="bindDateChange">
+				<view class="u-f-ac">
+					<view>{{birthday}}</view>
+					<view class="icon iconfont icon-bianji1"></view>
+				</view>
+			</picker>
 		</view>
 		<view class="user-set-userinfo-list u-f-ac u-f-jsb">
 			<view>情感</view>
@@ -54,6 +56,8 @@
 </template>
 
 <script>
+	// 在 uni-app 中，定义在 data 里面的数据每次变化时都会通知视图层重新渲染页面。 
+	// 所以如果不是视图所需要的变量，可以不定义在 data 中，可在外部定义变量或直接挂载在vue实例上，以避免造成资源浪费。
 	let sexArr = ["不限", "男", "女"];
 	let qgArr = ['秘密', '未婚', '已婚'];
 	let jobArr = ['秘密', 'IT', '老师'];
@@ -67,9 +71,38 @@
 				sex: "不限",
 				qg: "未婚",
 				job: "IT",
+				birthday: "1990-03-16"
+			}
+		},
+		computed: {
+			startDate() {
+				return this.getDate('start');
+			},
+			endDate() {
+				return this.getDate('end');
 			}
 		},
 		methods: {
+			// 监听修改生日
+			bindDateChange(e) {
+				this.birthday = e.target.value
+			},
+			getDate(type) {
+				console.log('getDate() is called');
+				const date = new Date();
+				let year = date.getFullYear();
+				let month = date.getMonth() + 1;
+				let day = date.getDate();
+
+				if (type === 'start') {
+					year = year - 60;
+				} else if (type === 'end') {
+					year = year + 2;
+				}
+				month = month > 9 ? month : '0' + month;;
+				day = day > 9 ? day : '0' + day;
+				return `${year}-${month}-${day}`;
+			},
 			submit() {
 
 			},
