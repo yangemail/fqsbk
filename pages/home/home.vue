@@ -6,7 +6,7 @@
 			<!-- 第三方登录 -->
 			<other-login></other-login>
 			<!-- 账号密码登录 -->
-			<view class="u-f-ajc">账号密码登录<view class="icon iconfont icon-jinru"></view>
+			<view class="u-f-ajc" @tap="openLogin">账号密码登录<view class="icon iconfont icon-jinru"></view>
 			</view>
 		</template>
 
@@ -81,18 +81,18 @@
 				list: [{
 					icon: "liulan",
 					name: "浏览历史",
-					clicktype:"",
-					url:""
+					clicktype: "",
+					url: ""
 				}, {
 					icon: "huiyuanvip",
 					name: "糗百认证",
-					clicktype:"",
-					url:""
+					clicktype: "",
+					url: ""
 				}, {
 					icon: "keyboard",
 					name: "审核糗事",
-					clicktype:"",
-					url:""
+					clicktype: "",
+					url: ""
 				}]
 			}
 		},
@@ -110,7 +110,11 @@
 			}
 		},
 		methods: {
-
+			openLogin() {
+				uni.navigateTo({
+					url: '../login/login',
+				});
+			}
 		}
 	}
 </script>
