@@ -46,16 +46,20 @@
 		</view>
 		<view class="user-set-userinfo-list u-f-ac u-f-jsb">
 			<view>家乡</view>
-			<view class="u-f-ac">
-				<view>中国广州</view>
+			<view class="u-f-ac" @tap="showMulLinkageThreePicker">
+				<view>{{pickerText}}</view>
 				<view class="icon iconfont icon-bianji1"></view>
 			</view>
 		</view>
 		<button type="primary" class="user-set-btn" @tap="submit">完成</button>
+
+		<mpvue-city-picker themeColor="#007AFF" ref="mpvueCityPicker" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onConfirm"></mpvue-city-picker>
 	</view>
 </template>
 
 <script>
+	import mpvueCityPicker from "../../components/mpvue-citypicker/mpvueCityPicker.vue";
+
 	// 在 uni-app 中，定义在 data 里面的数据每次变化时都会通知视图层重新渲染页面。 
 	// 所以如果不是视图所需要的变量，可以不定义在 data 中，可在外部定义变量或直接挂载在vue实例上，以避免造成资源浪费。
 	let sexArr = ["不限", "男", "女"];
@@ -63,6 +67,9 @@
 	let jobArr = ['秘密', 'IT', '老师'];
 
 	export default {
+		components: {
+			mpvueCityPicker,
+		},
 		data() {
 			return {
 				// 后期此头像需要从服务器进行获取（当前登录用户的头像）
@@ -71,7 +78,20 @@
 				sex: "不限",
 				qg: "未婚",
 				job: "IT",
-				birthday: "1990-03-16"
+				birthday: "1990-03-16",
+				cityPickerValueDefault: [0, 0, 1],
+				pickerText: "广东省-广州市-白云区"
+			}
+		},
+		onBackPress() {
+			if (this.$refs.mpvueCityPicker.showPicker) {
+				this.$refs.mpvueCityPicker.pickerCancel();
+				return true;
+			}
+		},
+		onUnload() {
+			if (this.$refs.mpvueCityPicker.showPicker) {
+				this.$refs.mpvueCityPicker.pickerCancel()
 			}
 		},
 		computed: {
@@ -83,6 +103,13 @@
 			}
 		},
 		methods: {
+			// 三级联动
+			showMulLinkageThreePicker() {
+				this.$refs.mpvueCityPicker.show();
+			},
+			onConfirm(e) {
+				this.pickerText = e.label;
+			},
 			// 监听修改生日
 			bindDateChange(e) {
 				this.birthday = e.target.value
