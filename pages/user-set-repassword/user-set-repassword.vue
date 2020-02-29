@@ -17,7 +17,7 @@
 				newpassword: "",
 				renewpassword: "",
 				loading: false,
-				disable: true
+				disable: true,
 			}
 		},
 		// 监听，确认是否三个input都已经有值了

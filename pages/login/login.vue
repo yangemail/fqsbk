@@ -2,29 +2,170 @@
 	<view>
 		<!-- 状态栏：使用状态栏进行占位，空出状态栏的位置 -->
 		<uni-status-bar bgcolor="#FFE933"></uni-status-bar>
-		登录页面
+		<!-- 左上角的关闭按钮 -->
+		<view class="icon iconfont icon-guanbi" @tap="back"></view>
+		<!-- 引入背景图 -->
+		<image class="loginhead" src="../../static/common/loginhead.png" mode="widthFix" lazy-load></image>
+		<!-- 输入昵称/手机号/邮箱、密码、登录，输入框和按钮 -->
+		<view class="body">
+			<!-- <input type="text" class="uni-input common-input" placeholder="昵称/手机号/邮箱" />
+			<view class="login-input-box">
+				<input type="text" class="uni-input common-input forget-input" placeholder="请输入密码" />
+				<view class="forget u-f-ajc loign-font-color">忘记密码</view>
+			</view> -->
+			<view class="login-input-box">
+				<view class="phone u-f-ajc">+86</view>
+				<input type="text" class="uni-input common-input phone-input" placeholder="手机号" />
+			</view>
+			<view class="login-input-box">
+				<input type="text" class="uni-input common-input forget-input" placeholder="请输入验证码" />
+				<view class="forget u-f-ajc loign-font-color yanzhengma">
+					<view class="u-f-ajc">获取验证码</view>
+				</view>
+			</view>
+
+			<button type="primary" :loading="loading" class="user-set-btn" :class="{'user-set-btn-disable':disable}" @tap="submit"
+			 :disabled="disable">登录</button>
+		</view>
+		<!-- 登录状态切换 -->
+		<view class="login-status u-f-ajc login-padding login-font-color">
+			验证码登录<view class="icon iconfont icon-jinru login-font-color"></view>
+		</view>
+		<!-- 第三方登录 -->
+		<view class="other-login-title u-f-ajc login-padding login-font-color">第三方登录</view>
+		<other-login></other-login>
+		<!-- 协议 -->
+		<view class="login-rule u-f-ajc login-padding login-font-color">
+			注册即代表您同意<view>《XXX协议》</view>
+		</view>
 	</view>
 </template>
 
 <script>
 	// 状态栏
 	import uniStatusBar from "../../components/uni-status-bar/uni-status-bar.vue"
-	
+	// 第三方登录组件
+	import otherLogin from "../../components/other-login.vue";
+
 	export default {
 		components: {
 			uniStatusBar,
+			otherLogin,
 		},
 		data() {
 			return {
-				
+				loading: false,
+				disable: true,
 			}
 		},
 		methods: {
-			
+			// 返回上一步
+			back() {
+				console.log("返回上一步");
+			},
+			// 提交登录
+			submit() {
+				console.log("提交登录")
+			}
 		}
 	}
 </script>
 
 <style>
+	/* css 引入需要放到第一行 */
+	@import url("../../common/form.css");
 
+	.login-font-color {
+		color: #BBBBBB;
+	}
+
+	.login-padding {
+		padding: 20rpx 0;
+	}
+
+
+	.icon-guanbi {
+		position: fixed;
+		top: 60rpx;
+		left: 30rpx;
+		font-size: 40rpx;
+		font-weight: bold;
+		color: #332F0A;
+		z-index: 100;
+	}
+
+	.loginhead {
+		width: 100%;
+	}
+
+	.login-input-box {
+		position: relative;
+	}
+
+	/* 定义.forget-input,如果不定义输入值的时候，光标和输入会藏到"忘记密码"的下面 */
+	.login-input-box .forget-input {
+		padding-right: 150rpx;
+	}
+	
+	.login-input-box .forget, .login-input-box .phone {
+		position: absolute;
+		top: 0;
+		height: 100%;
+		z-index: 100;
+		/* background: yellow; */
+	}
+
+	.login-input-box .forget {
+		right: 0;
+		/* 定义这个宽度是为了上面的.forget-input,不然不知道具体宽度需要多少 */
+		width: 150rpx;
+	}
+
+	.login-input-box .phone {
+		left: 0;
+		width: 100rpx;
+		font-weight: bold;
+	}
+
+	.login-input-box .phone-input { 
+		padding-left: 100rpx;
+	}
+	
+	.yanzhengma > view {
+		background: #EEEEEE;
+		border-radius: 10rpx;
+		font-size: 25rpx;
+		width: 150rpx;
+		padding: 10rpx 0;
+	}
+
+	.other-login-title {
+		position: relative;
+	}
+
+	/* 在.other-login-title左边和右边分别增加。
+	   :before是css中的一种伪元素，可用于在某个元素之前插入某些内容。
+	   :after是css中的一种伪元素，可用于在某个元素之后插入某些内容。 */
+	.other-login-title::before,
+	.other-login-title::after {
+		content: "";
+		position: absolute;
+		background: #BBBBBB;
+		/* 高度为1rpx */
+		height: 1rpx;
+		/* 宽度为100rpx */
+		width: 100rpx;
+		/* 距离此元素的顶边50%位置 */
+		top: 50%
+	}
+
+	.other-login-title::before {
+		/* 距离屏幕的左边是25% */
+		left: 25%;
+	}
+
+	.other-login-title::after {
+		/* 距离屏幕的右边是25% */
+		right: 25%;
+	}
 </style>
