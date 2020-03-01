@@ -51,7 +51,7 @@
 		},
 		data() {
 			return {
-				islogin: false,
+				islogin: true,
 				// 登录
 				homeinfo: {
 					userpic: "../../static/demo/userpic/11.jpg",

@@ -1,6 +1,6 @@
 <template>
 		<!-- 登录 -->
-		<view class="home-info u-f-ac">
+		<view class="home-info u-f-ac" @tap="toUserSpace">
 			<image :src="homeinfo.userpic" mode="widthFix" lazy-load></image>
 			<view class="u-f1">
 				<view>{{homeinfo.username}}</view>
@@ -19,7 +19,14 @@
 			return {
 				
 			};
-		}
+		},
+		methods: {
+			toUserSpace() {
+				uni.navigateTo({
+					url: '../../pages/user-space/user-space',
+				});
+			}
+		},
 	}
 </script>
 
