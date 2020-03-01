@@ -52,6 +52,10 @@
 </script>
 
 <style scoped>
+	/* 公共间距 */
+	.user-space-margin {
+		margin: 15rpx 0;
+	}
 
 	.user-space-head {
 		position: relative;

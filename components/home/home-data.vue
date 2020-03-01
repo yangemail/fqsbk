@@ -23,6 +23,7 @@
 </script>
 
 <style scoped>
+
 	.home-data {
 		padding: 20rpx 40rpx;
 	}
