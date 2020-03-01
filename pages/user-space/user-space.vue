@@ -2,16 +2,22 @@
 	<view>
 		<!-- 背景图+用户基本信息 -->
 		<user-space-head :userinfo="userinfo"></user-space-head>
+		
 		<!-- 统计 -->
 		<view class="user-space-data">
 			<home-data :homedata="spacedata"></home-data>
 		</view>
 		<!-- 统计和tab导航之间的分割线 -->
+		
 		<view style="height: 20rpx; background: #F4F4F4;"></view>
+		
 		<!-- tab导航 -->
 		<swiper-tab-head :tabBars="tabBars" :tabIndex="tabIndex" @tabtap="tabtap" scrollStyle="border-bottom:0;"
 		 scrollItemStyle="width:33.33%;"></swiper-tab-head>
 
+		<!-- 主页 -->
+		<user-space-userinfo :userinfo="userinfo"></user-space-userinfo>
+		
 	</view>
 </template>
 
@@ -22,12 +28,15 @@
 	import homeData from "../../components/home/home-data.vue";
 	// Tab导航切换
 	import swiperTabHead from "../../components/index/swiper-tab-head.vue";
+	// 个人主页组件
+	import userSpaceUserinfo from "../../components/user-space/user-space-userinfo.vue";
 
 	export default {
 		components: {
 			userSpaceHead,
 			homeData,
 			swiperTabHead,
+			userSpaceUserinfo,
 		},
 		data() {
 			return {
@@ -52,6 +61,12 @@
 					sex: 0,
 					age: 20,
 					isguanzhu: false,
+					regtime: "2019-04-11",
+					id: 1213,
+					birthday: "1987-02-07",
+					job: "IT",
+					path: "广东广州",
+					qg: "已婚"
 				},
 				spacedata: [{
 						name: "获赞",
