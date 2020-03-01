@@ -87,6 +87,11 @@
 			}
 		},
 		methods: {
+			// 验证手机号码
+			isPhoneNumValid() {
+				let mPattern = /^1[34578]\d{9}$/;
+				return mPattern.test(this.phone);
+			},
 			// 获取验证码
 			getCheckNum() {
 				if(this.codetime > 0) { // 正处于倒计时状态
@@ -96,6 +101,15 @@
 					});
 					return;
 				}
+				// 验证手机号码合法性
+				if(!this.isPhoneNumValid()) {
+					uni.showToast({
+						title:"请输入正确的手机号码",
+						icon:"none"
+					});
+					return;
+				}
+				
 				// 请求服务器，让服务器发送验证码
 				// 发送成功,开启倒计时
 				this.codetime = 10;
@@ -131,8 +145,21 @@
 			back() {
 				console.log("返回上一步");
 			},
-			// 提交登录
+			// 提交登录 
+			// TODO: 等讲到API接口的时候再进行讲述这部分逻辑
 			submit() {
+				// 账号密码登录
+				if(!this.status){
+					return;
+				}
+				// 验证码登录
+				if(!this.isPhoneNumValid()) {
+					uni.showToast({
+						title: '请输入正确的手机号码',
+						icon:"none"
+					});
+					return;
+				}
 				console.log("提交登录")
 			}
 		}
