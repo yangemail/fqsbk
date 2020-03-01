@@ -41,7 +41,7 @@
 					}, {
 						icon: "",
 						name: "清除缓存",
-						clicktype: "",
+						clicktype: "clear",
 						url: ""
 					}, {
 						icon: "",
