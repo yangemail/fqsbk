@@ -35,7 +35,7 @@
 	import swiperTabHead from "../../components/index/swiper-tab-head.vue";
 	// 关注中的动态列表组件
 	import commonList from "../../components/common/common-list.vue";
-	// 下拉加载更多
+	// 上拉加载更多
 	import loadMore from "../../components/common/load-more.vue";
 
 	export default {
