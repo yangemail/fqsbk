@@ -38,9 +38,9 @@
 	// 登录信息
 	import homeInfo from "../../components/home/home-info.vue";
 	// 第三方登录
-	import otherLogin from "../../components/other-login.vue";
+	import otherLogin from "../../components/home/other-login.vue";
 	// 糗事、动态、评论、收藏：数据
-	import homeData from "../../components/home-data.vue";
+	import homeData from "../../components/home/home-data.vue";
 
 	export default {
 		components: {

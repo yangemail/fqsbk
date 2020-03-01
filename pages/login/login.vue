@@ -53,7 +53,7 @@
 	// 状态栏
 	import uniStatusBar from "../../components/uni-status-bar/uni-status-bar.vue"
 	// 第三方登录组件
-	import otherLogin from "../../components/other-login.vue";
+	import otherLogin from "../../components/home/other-login.vue";
 
 	export default {
 		components: {
@@ -69,7 +69,8 @@
 				password: "",
 				phone: "",
 				checknum: "",
-				codetime: 0 // 验证码倒计时
+				codetime: 0 ,// 验证码倒计时
+		
 			}
 		},
 		watch: {
