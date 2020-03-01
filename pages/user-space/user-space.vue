@@ -31,6 +31,9 @@
 				<load-more :loadtext="item.loadtext"></load-more>
 			</template>
 		</block>
+		
+		<!-- 操作菜单 -->
+		<user-space-popup :show="show" @hide="toggleShow" @lahei="lahei" @beizhu="beizhu"></user-space-popup>
 
 	</view>
 </template>
@@ -48,6 +51,8 @@
 	import commonList from "../../components/common/common-list.vue";
 	// 上拉加载更多
 	import loadMore from "../../components/common/load-more.vue";
+	// 右边Menu弹出菜单
+	import userSpacePopup from "../../components/user-space/user-space-popup.vue";
 
 	export default {
 		components: {
@@ -57,13 +62,11 @@
 			userSpaceUserinfo,
 			commonList,
 			loadMore,
-		},
-		// 上拉加载，上拉触底事件
-		onReachBottom() {
-			this.loadmore();
+			userSpacePopup,
 		},
 		data() {
 			return {
+				show: false,
 				tabIndex: 0,
 				tabBars: [{
 						name: "主页",
@@ -225,7 +228,30 @@
 				]
 			}
 		},
+		// 上拉加载，上拉触底事件
+		onReachBottom() {
+			this.loadmore();
+		},
+		onNavigationBarButtonTap(e) {
+			if(e.index == 0) {
+				this.toggleShow();
+			}
+		},
 		methods: {
+			// 操作菜单显示隐藏
+			toggleShow(){
+				this.show = !this.show;
+			},
+			// 拉黑
+			lahei() {
+				console.log('拉黑');
+				this.toggleShow();
+			},
+			// 备注
+			beizhu() {
+				console.log('备注')
+				this.toggleShow();
+			},
 			// tabbar点击事件
 			tabtap(index) {
 				this.tabIndex = index;
