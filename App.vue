@@ -1,6 +1,9 @@
 <script>
 	export default {
 		onLaunch: function() {
+			// console.log('--- 演示调用 config.js 中的 webUrl ---' + this.config.webUrl)
+			// this.lib.ceshi();
+			
 			console.log('App Launch')
 		},
 		onShow: function() {
