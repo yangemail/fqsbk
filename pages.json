@@ -125,6 +125,8 @@
 			"path": "pages/add-input/add-input",
 			"style": {
 				"app-plus": {
+					"animationType": "slide-in-bottom",
+					"animationDuration": 200,
 					"titleNView": false
 				}
 			}
@@ -141,6 +143,8 @@
 			"style": { // 用于设置每个页面的状态栏、导航条、标题、窗口背景色等。页面中配置项会覆盖 globalStyle 中相同的配置项
 				"enablePullDownRefresh": true, // 是否开启下拉刷新，详见页面生命周期。
 				"app-plus": { // 配置编译到 App 平台时的特定样式，部分常用配置 H5 平台也支持。以下仅列出常用，更多配置项参考 WebviewStyles。
+					"animationType": "slide-in-bottom",
+					"animationDuration": 200,
 					"scrollIndicator": "none", // 滚动条显示策略，设置为 "none" 时不显示滚动条。
 					"titleNView": { // 导航栏
 						"type": "transparent", //导航栏样式。"default"-默认样式；"transparent"-滚动透明渐变；"float"-悬浮导航栏。
@@ -265,31 +269,28 @@
 			"path": "pages/login/login",
 			"style": {
 				"app-plus": {
-					"titleNView": false ,//取消原生的导航栏,
-					"scrollIndicator":"none",
-					"bounce":"none"
+					"titleNView": false, //取消原生的导航栏,
+					"scrollIndicator": "none",
+					"bounce": "none"
 				}
 			}
-		}
-	    ,{
-            "path" : "pages/user-space/user-space",
-            "style" : {
-				"navigationBarTitleText":"个人空间",
+		}, {
+			"path": "pages/user-space/user-space",
+			"style": {
+				"navigationBarTitleText": "个人空间",
 				"app-plus": {
-					"scrollIndicator":"none",
-					"bounce":"none",
+					"scrollIndicator": "none",
+					"bounce": "none",
 					"titleNView": {
-						"type":"transparent", // 导航栏样式。"default"-默认样式；"transparent"-滚动透明渐变；"float"-悬浮导航栏。
-						"buttons":[
-							{
-								"type":"menu" // 菜单按钮
-							}
-						]
+						"type": "transparent", // 导航栏样式。"default"-默认样式；"transparent"-滚动透明渐变；"float"-悬浮导航栏。
+						"buttons": [{
+							"type": "menu" // 菜单按钮
+						}]
 					}
 				}
 			}
-        }
-    ],
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "仿糗事百科",

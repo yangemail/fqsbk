@@ -1,6 +1,6 @@
 <template>
 	<!-- 聊天页面底部输入框 -->
-	<view class="user-chat-bottom u-f-ac">
+	<view class="user-chat-bottom u-f-ac animated fadeInDown fast">
 		<input type="text" placeholder="文明发言" v-model="text" />
 		<view class="icon iconfont icon-fabu u-f-ajc" @tap="submit"></view>
 	</view>
