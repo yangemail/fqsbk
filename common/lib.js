@@ -28,8 +28,11 @@ const NetWork = {
 	// 监听网络状态
 	On(){
 		// 获取当前网络状态
+		// uni.getNetworkType(OBJECT): 获取网络类型。
 		uni.getNetworkType({
 			success: (res) => {
+				// console.log('获取');
+				// console.log(JSON.stringify(res));
 				if(res.networkType!=='none'){ this.isConnect=true; return;}
 				uni.showToast({
 					icon:"none",
@@ -37,8 +40,10 @@ const NetWork = {
 				});
 			}
 		})
-		// 监听网络状态变化
+		// uni.onNetworkStatusChange(CALLBACK): 监听网络状态变化
 		uni.onNetworkStatusChange((res)=>{
+			// console.log('监听网络变化')
+			// console.log(JSON.stringify(res))
 			this.isConnect = res.isConnected;
 			if(!res.isConnected){
 				uni.showToast({

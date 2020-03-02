@@ -4,6 +4,11 @@
 			// console.log('--- 演示调用 config.js 中的 webUrl ---' + this.config.webUrl)
 			// this.lib.ceshi();
 			
+			// 对网络进行监听(用户目前断网,切换wifi)
+			this.lib.NetWork.On();
+			
+			// 更新检测
+			
 			console.log('App Launch')
 		},
 		onShow: function() {
