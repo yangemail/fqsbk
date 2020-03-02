@@ -9,6 +9,7 @@
 			
 			// 更新检测
 			
+			
 			console.log('App Launch')
 		},
 		onShow: function() {
